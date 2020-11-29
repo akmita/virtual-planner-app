@@ -36,5 +36,9 @@ imagine sending a link from your web browser to have the app to remind you to re
 //  each liste item will have a screen
 //   screen navigation (app.js): https://reactnavigation.org/docs/hello-react-navigation
 //   state without component objects: https://reactnative.dev/docs/state 
-/// edit button not working, i can pass a parameter and call a console.log statement through it,
-// but once it hits the navigation, it doesn't wanna work, try a statful componnent
+/// edit button not working, i can pass a parameter and call a console.log statement through it,	
+// but once it hits the navigation, it doesn't wanna work, try a statful componnent					FIXED
+
+// instead of edit button, make the whole goal clickable for best UX					FIXED
+
+//  
