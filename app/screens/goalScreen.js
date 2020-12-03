@@ -102,7 +102,7 @@ class GoalScreen extends React.Component {
         style={styles.background}
         source={require("../assets/blueBackground.png")}
       >
-        <List goals={goalsObj} />
+        <List goals={goalsObj} dest="Milestones" />
       </ImageBackground>
     );
   }

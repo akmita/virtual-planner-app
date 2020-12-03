@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, Button, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ListMilestones from "../components/ListMilestones";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
+import List from "../components/List";
 
 class EditGoal extends React.Component {
   render() {

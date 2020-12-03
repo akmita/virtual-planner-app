@@ -10,7 +10,7 @@ function ListTasks(props) {
 
   return props.milestone.tasks.map((task) => {
     return (
-      <View style={styles.list} key={task.key}>
+      <View style={styles.list} key={task.id}>
         <Text
           style={{ backgroundColor: "salmon", flexGrow: 30, height: 40 }}
           key={task.id}
