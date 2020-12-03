@@ -22,10 +22,34 @@ var goalsObj = [
       {
         id: 1000,
         name: "learn hook methods",
+        tasks: [
+          {
+            id: 2000,
+            name: "drink coffee",
+            reason: "because I said so",
+          },
+          {
+            id: 2000,
+            name: "drink coffee",
+            reason: "because I said so",
+          },
+        ],
       },
       {
         id: 1001,
         name: "look at other people's react apps",
+        tasks: [
+          {
+            id: 2000,
+            name: "eat water",
+            reason: "because I said so",
+          },
+          {
+            id: 2000,
+            name: "eat water",
+            reason: "because I said so",
+          },
+        ],
       },
     ],
   },
@@ -37,10 +61,34 @@ var goalsObj = [
       {
         id: 1000,
         name: "add documentation",
+        tasks: [
+          {
+            id: 2000,
+            name: "drink banannas",
+            reason: "because I said so",
+          },
+          {
+            id: 2000,
+            name: "eat water",
+            reason: "because I said so",
+          },
+        ],
       },
       {
         id: 1001,
         name: "refine code, make it look nice",
+        tasks: [
+          {
+            id: 2000,
+            name: "sleep with a stuffed bear",
+            reason: "because I said so",
+          },
+          {
+            id: 2000,
+            name: "eat water",
+            reason: "because I said so",
+          },
+        ],
       },
     ],
   },

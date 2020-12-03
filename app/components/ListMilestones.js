@@ -9,11 +9,14 @@ function ListMilestones(props) {
   // change goal to element, since this will be reused
   return props.ms.map((milstn) => {
     return (
-      <View style={styles.list}>
+      <View style={styles.list} key={milstn.id}>
         <Text
           style={{ backgroundColor: "salmon", flexGrow: 30, height: 40 }}
-          key={milstn.id}
-          onPress={() => navigation.navigate("Tasks")}
+          onPress={() =>
+            navigation.navigate("Tasks", {
+              milestone: milstn,
+            })
+          }
         >
           {milstn.name}
         </Text>

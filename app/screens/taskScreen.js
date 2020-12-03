@@ -2,35 +2,38 @@ import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import { StyleSheet, View, Text, Button, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import ListMilestones from "../components/ListMilestones";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
+import EditTask from "./editTasks";
 
 function ListTasks(props) {
   const navigation = useNavigation();
 
-  // change goal to element, since this will be reused
-  return props.ms.map((milstn) => {
+  return props.milestone.tasks.map((task) => {
     return (
-      <View style={styles.list}>
+      <View style={styles.list} key={task.key}>
         <Text
           style={{ backgroundColor: "salmon", flexGrow: 30, height: 40 }}
-          key={milstn.id}
-          onPress={() => console.log("todo")}
+          key={task.id}
+          onPress={() => {
+            navigation.navigate("EditTasks", { task: task });
+          }}
         >
-          {milstn.name}
+          {task.name}
         </Text>
       </View>
     );
   });
 }
 
-function TaskScreen() {
+function TaskScreen({ route, navigation }) {
+  var { milestone } = route.params;
+
   return (
     <ImageBackground
       style={styles.background}
       source={require("../assets/blueBackground.png")}
     >
-      <ListTasks></ListTasks>
+      <ListTasks milestone={milestone}></ListTasks>
     </ImageBackground>
   );
 }
@@ -38,6 +41,11 @@ function TaskScreen() {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+  },
+  list: {
+    paddingTop: 5,
+    flexDirection: "row",
+    opacity: 0.8,
   },
 });
 

@@ -9,6 +9,7 @@ import { StyleSheet, Text, View } from "react-native";
 import GoalScreen from "./app/screens/goalScreen";
 import MilestonesScreen from "./app/screens/milestone";
 import TasksScreen from "./app/screens/taskScreen";
+import EditTasks from "./app/screens/editTasks";
 
 const localData = require("./");
 const Stack = createStackNavigator();
@@ -40,6 +41,11 @@ export default function App() {
           name="Tasks"
           component={TasksScreen}
           options={{ title: "Tasks" }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="EditTasks"
+          component={EditTasks}
+          options={{ title: "EditTasks" }}
         ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import ListMilestones from "../components/ListMilestones";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
 
-class GoalInfo extends React.Component {
+class EditGoal extends React.Component {
   render() {
     return (
       <View>
@@ -34,7 +34,7 @@ function MilestonesScreen({ route, navigation }) {
       style={styles.background}
       source={require("../assets/blueBackground.png")}
     >
-      <GoalInfo goal={goal}></GoalInfo>
+      <EditGoal goal={goal}></EditGoal>
       <ListMilestones ms={goal.milestones} />
     </ImageBackground>
   );

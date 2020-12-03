@@ -11,10 +11,9 @@ function List(props) {
   // TODO put map inside container
   return props.goals.map((goal) => {
     return (
-      <View style={styles.list}>
+      <View style={styles.list} key={goal.id}>
         <Text
           style={{ backgroundColor: "salmon", flexGrow: 30, height: 40 }}
-          key={goal.id}
           onPress={() => {
             navigation.navigate("Milestones", {
               goal: goal,
