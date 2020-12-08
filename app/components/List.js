@@ -10,17 +10,19 @@ function List(props) {
 
   function handlePress(genericGoal) {
     if (props.dest == "Milestones") {
+      console.log("navigating to milestones using List.js");
       navigation.navigate(props.dest, {
         goal: genericGoal,
       });
     } else if (props.dest == "Tasks") {
+      console.log("navigating to tasks using List.js");
       navigation.navigate(props.dest, {
-        milestone: genericGoal,
+        milestone: genericGoal.milestones,
       });
     }
   }
 
-  // TODO put map inside container
+  // renders list items
   return props.goals.map((goal) => {
     return (
       <View style={styles.list} key={goal.id}>

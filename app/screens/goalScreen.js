@@ -3,6 +3,7 @@ import { ImageBackground } from "react-native";
 import { StyleSheet, View, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import List from "../components/List";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // figure out local storage later
 // import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -24,28 +25,28 @@ var goalsObj = [
         name: "learn hook methods",
         tasks: [
           {
-            id: 2000,
+            id: 2041,
             name: "drink coffee",
             reason: "because I said so",
           },
           {
-            id: 2000,
+            id: 2031,
             name: "drink coffee",
             reason: "because I said so",
           },
         ],
       },
       {
-        id: 1001,
+        id: 1003,
         name: "look at other people's react apps",
         tasks: [
           {
-            id: 2000,
+            id: 2032,
             name: "eat water",
             reason: "because I said so",
           },
           {
-            id: 2000,
+            id: 2021,
             name: "eat water",
             reason: "because I said so",
           },
@@ -59,23 +60,23 @@ var goalsObj = [
     reason: "to look better for recruiters = better job",
     milestones: [
       {
-        id: 1000,
+        id: 1004,
         name: "add documentation",
         tasks: [
           {
-            id: 2000,
+            id: 2011,
             name: "drink banannas",
             reason: "because I said so",
           },
           {
-            id: 2000,
+            id: 2010,
             name: "eat water",
             reason: "because I said so",
           },
         ],
       },
       {
-        id: 1001,
+        id: 1005,
         name: "refine code, make it look nice",
         tasks: [
           {
@@ -84,7 +85,7 @@ var goalsObj = [
             reason: "because I said so",
           },
           {
-            id: 2000,
+            id: 2001,
             name: "eat water",
             reason: "because I said so",
           },
@@ -94,14 +95,37 @@ var goalsObj = [
   },
 ];
 
+const storeData = async (value) => {
+  try {
+    await AsyncStorage.setItem("@storage_Key", value);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const getData = async () => {
+  try {
+    const value = await AsyncStorage.getItem("@storage_Key");
+    console.log("storage value: " + value);
+    if (value !== null) {
+      // value previously stored
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 // rsf
 class GoalScreen extends React.Component {
   render() {
+    storeData("hail satan");
+    getData();
     return (
       <ImageBackground
         style={styles.background}
         source={require("../assets/blueBackground.png")}
       >
+        <Text style={{ color: "white" }}></Text>
         <List goals={goalsObj} dest="Milestones" />
       </ImageBackground>
     );

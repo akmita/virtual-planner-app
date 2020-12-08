@@ -36,7 +36,6 @@ function MilestonesScreen({ route, navigation }) {
       source={require("../assets/blueBackground.png")}
     >
       <EditGoal goal={goal}></EditGoal>
-      <ListMilestones ms={goal.milestones} />
     </ImageBackground>
   );
 }

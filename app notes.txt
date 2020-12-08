@@ -27,6 +27,21 @@ render milestones, inside the main goal container
 render weekly tasks inside the container for milestones
 bind event listeners
 
+================================= WROKING OUT PROBLEMS ===================================
+how do I organize the asynch storage ?
+	maybe each goal should have its own key, but then how would we update the nested tasks?
+	option 1:
+		refactor the app to 
+
+big problem!!!
+	if we change an object in the local database, react won't update app state automatically
+
+
+should I have an instance of asynchstorage in each screen?? seems a little unwiedly.
+	I think I'll do it, since otherwise I'd have to refactor the app into one single screen
+
+
+
 ====================================== COOL IDEAS =======================================
 imagine sending a link from your web browser to have the app to remind you to read later
 
@@ -41,4 +56,5 @@ imagine sending a link from your web browser to have the app to remind you to re
 
 // instead of edit button, make the whole goal clickable for best UX					FIXED
 
-//  
+// left off working on a sort-of UML diagram on google drive, trying to figure out the 
+// details of working with Asynchstorage
