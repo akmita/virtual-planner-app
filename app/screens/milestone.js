@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import { StyleSheet, View, Text, Button, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import ListMilestones from "../components/ListMilestones";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
 import List from "../components/List";
 
@@ -36,6 +35,7 @@ function MilestonesScreen({ route, navigation }) {
       source={require("../assets/blueBackground.png")}
     >
       <EditGoal goal={goal}></EditGoal>
+      <List goals={goal.milestones} dest="Tasks" />
     </ImageBackground>
   );
 }

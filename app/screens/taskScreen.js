@@ -4,26 +4,7 @@ import { StyleSheet, View, Text, Button, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
 import EditTask from "./editTasks";
-
-function ListTasks(props) {
-  const navigation = useNavigation();
-
-  return props.milestone.tasks.map((task) => {
-    return (
-      <View style={styles.list} key={task.id}>
-        <Text
-          style={{ backgroundColor: "salmon", flexGrow: 30, height: 40 }}
-          key={task.id}
-          onPress={() => {
-            navigation.navigate("EditTasks", { task: task });
-          }}
-        >
-          {task.name}
-        </Text>
-      </View>
-    );
-  });
-}
+import List from "../components/List";
 
 function TaskScreen({ route, navigation }) {
   var { milestone } = route.params;
@@ -33,7 +14,7 @@ function TaskScreen({ route, navigation }) {
       style={styles.background}
       source={require("../assets/blueBackground.png")}
     >
-      <ListTasks milestone={milestone}></ListTasks>
+      <List goals={milestone.tasks} dest="EditTasks" />
     </ImageBackground>
   );
 }

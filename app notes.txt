@@ -33,12 +33,6 @@ how do I organize the asynch storage ?
 	option 1:
 		refactor the app to 
 
-big problem!!!
-	if we change an object in the local database, react won't update app state automatically
-
-
-should I have an instance of asynchstorage in each screen?? seems a little unwiedly.
-	I think I'll do it, since otherwise I'd have to refactor the app into one single screen
 
 
 
