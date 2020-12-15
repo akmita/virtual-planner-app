@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableNativeFeedback } from "react-native-gesture-handler";
 
 // contains list items
 function List(props) {
@@ -31,14 +32,14 @@ function List(props) {
   // renders list items
   return props.goals.map((element) => {
     return (
-      <View style={styles.list} key={element.id}>
+      <TouchableNativeFeedback style={styles.list} key={element.id}>
         <Text
           style={{ backgroundColor: "salmon", flexGrow: 30, height: 40 }}
           onPress={() => handlePress(element)}
         >
           {element.name}
         </Text>
-      </View>
+      </TouchableNativeFeedback>
     );
   });
 }

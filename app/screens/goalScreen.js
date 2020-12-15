@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { ImageBackground } from "react-native";
-import { StyleSheet, View, Text, Button } from "react-native";
+import {
+  Dimensions,
+  ImageBackground,
+  TouchableNativeFeedbackBase,
+} from "react-native";
+import { Overlay } from "react-native-elements";
+import { StyleSheet, View, Text, Button, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import List from "../components/List";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { TouchableNativeFeedback } from "react-native-gesture-handler";
 
 // figure out local storage later
 // import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -117,9 +123,23 @@ const getData = async () => {
 
 // rsf
 class GoalScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { overlayOn: false };
+  }
+
+  addNewItem() {
+    console.log("state: ");
+    console.log(this.state);
+    this.setState({
+      overlayOn: true,
+    });
+  }
+
   render() {
     storeData("hail satan");
     getData();
+
     return (
       <ImageBackground
         style={styles.background}
@@ -127,6 +147,31 @@ class GoalScreen extends React.Component {
       >
         <Text style={{ color: "white" }}></Text>
         <List goals={goalsObj} dest="Milestones" />
+        <TouchableNativeFeedback>
+          <Text onPress={(e) => this.addNewItem()} style={styles.addNewItemBtn}>
+            add new item
+          </Text>
+        </TouchableNativeFeedback>
+        <Overlay isVisible={this.state.overlayOn}>
+          <View>
+            <TextInput placeholder="enter goal name"></TextInput>
+            <TextInput placeholder="enter reason for goal"></TextInput>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <TouchableNativeFeedback>
+                <Text>Submit</Text>
+              </TouchableNativeFeedback>
+              <TouchableNativeFeedback>
+                <Text>Cancel</Text>
+              </TouchableNativeFeedback>
+            </View>
+          </View>
+        </Overlay>
       </ImageBackground>
     );
   }
@@ -136,6 +181,30 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
   },
+  addNewItemBtn: {
+    textAlign: "center",
+    borderWidth: 5,
+    borderColor: "salmon",
+    marginTop: 5,
+    color: "white",
+    paddingTop: 6,
+    fontWeight: "bold",
+    fontSize: 15,
+  },
 });
+
+// addNewItemOverlay: {
+//   height: Dimensions.get("window").height,
+//   width: Dimensions.get("window").width,
+//   backgroundColor: "black",
+//   opacity: 0.4,
+// },
+// addNewItemPanel: {
+//   width: "80%",
+//   height: "80%",
+//   backgroundColor: "white",
+//   margin: "10%",
+//   opacity: 1,
+// },
 
 export default GoalScreen;
